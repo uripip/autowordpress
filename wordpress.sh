@@ -11,7 +11,7 @@ read -p "Dominio del sitio web: " domain
 apt install mariadb-server mariadb-client net-tools ufw -y  
   
 # Creem la base de dades projecte, un usuari que utilitzarà més tard el servei web per conectar's-hi i li configurem tots els privilegis  
-echo "$domain 127.0.0.1" >> /etc/hosts  
+echo "127.0.0.1 $domain" >> /etc/hosts  
 echo "create database $db_name" | mysql 
 echo "create user '$db_user'@'%' identified by '$db_password'" | mysql  
 echo "grant all privileges on $db_name.* to '$db_user'@'%'" | mysql 
